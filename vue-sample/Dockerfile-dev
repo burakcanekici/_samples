@@ -1,0 +1,19 @@
+# base image
+FROM node:14
+
+# set working directory
+WORKDIR /app
+
+# add `/app/node_modules/.bin` to $PATH
+ENV PATH /app/node_modules/.bin:$PATH
+
+# install and cache app dependencies
+COPY package.json /app/package.json
+RUN npm install
+RUN npm install @vue/cli -g
+
+# start app
+CMD ["npm", "run", "serve"]
+
+# docker build -f Dockerfile-dev -t my-app:dev .
+# docker run -v %cd%:/app -v /app/node_modules -p 8080:8080 --name my-app_dev --rm my-app:dev

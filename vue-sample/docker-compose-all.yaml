@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+
+  my-app-dev:
+    container_name: my-app-dev
+    build:
+      context: .
+      dockerfile: Dockerfile-dev
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - '8080:8080'
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+
+  my-app-prod:
+    container_name: my-app-prod
+    build:
+      context: .
+      dockerfile: Dockerfile-prod
+    ports:
+      - '80:80'
+      
+# docker-compose -f docker-compose-all.yaml up -d --build
