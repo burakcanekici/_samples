@@ -1,0 +1,8 @@
+FROM redis
+
+# Open CLI for redis
+# redis-cli
+# set <key> <value>
+	# set req1 res1
+	# set req2 res2
+# get req1

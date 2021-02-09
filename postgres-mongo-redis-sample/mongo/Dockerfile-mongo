@@ -1,0 +1,10 @@
+FROM mongo
+
+# Open CLI for mongo
+# mongo admin -u <user> -p <password>  => mongo admin -u be -p be
+# show dbs
+# use reqs_db
+# show collections
+# db.createCollection("reqs")
+# db.reqs.insertMany([{"request" : "req1","response" : "res1"},{"request" : "req2","response" : "res2"}])
+# db.reqs.find().pretty()
