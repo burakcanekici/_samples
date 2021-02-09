@@ -1,0 +1,20 @@
+docker build -t pokemon-frontend .
+docker run -d -it -p 80:80 --name frontend pokemon-frontend
+
+docker build -t pokemon-backend .
+docker run -d -it -p 8080:8080 --name backend pokemon-backend
+
+---> 	frontend not work correctly because it can not find the 'backend'
+	host because they need a network that both of them connect it,
+	so we need to create a network and connect the containers by the
+	following commands
+
+docker network create multi-host-network
+docker network connect multi-host-network frontend
+docker network connect multi-host-network backend
+
+--->	then the frontend container can find the 'backend' host on the
+	'multi-host-network' and it can be started properly by the following
+	command
+
+docker start frontend -a

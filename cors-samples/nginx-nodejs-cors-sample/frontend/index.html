@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#get").click(function(){
+    $.get("http://localhost/services/pokemon", function(data, status){
+      console.log(data);
+	  $("#list").empty();
+	  $("#list").append(data);
+    });
+  });
+  
+  $("#post").click(function(){
+    $.post("http://localhost/services/pokemon", function(data, status){
+      console.log(data);
+	  $("#list").empty();
+	  $("#list").append(data);
+    });
+  });
+});
+</script>
+  <meta charset="utf-8">
+  <title>Pokedex</title>
+</head>
+<body>
+  <h2>Hello from Nginx container</h2>
+  <button id="get">Get all pokemons</button>
+  <button id="post">Add Squirtle to list</button>
+  <p id="list"></p>
+</body>
+</html>

@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  frontend:
+    container_name: frontend
+    image: nginx-frontend
+    build: 
+      context: ./frontend
+    ports:
+      - "80:80"
+    networks: 
+      - frontend
+      - backend
+  
+  backend:
+    container_name: backend
+    image: nodejs-backend
+    build:
+      context: ./backend
+    networks: 
+      - backend
+    ports:
+      - "8080:8080"
+      
+
+networks: 
+  frontend:
+  backend:

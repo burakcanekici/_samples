@@ -1,0 +1,10 @@
+<Employees>
+	<Employee>
+		<id>1</id>
+		<name>A</name>
+	</Employee>
+	<Employee>
+		<id>2</id>
+		<name>B</name>
+	</Employee>
+</Employees>
